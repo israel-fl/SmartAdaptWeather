@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SmartAdapt Weather</string>
+    <string name="settings">settings_menu</string>
+    <string name="indoor_conditions">Indoor Conditions</string>
+    <string name="outdoor_conditions">Outdoor Conditions</string>
+    <string name="suggestions_title">SUGGESTIONS</string>
+</resources>
