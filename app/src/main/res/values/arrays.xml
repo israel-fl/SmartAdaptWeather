@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="suggestions">
+        <item>Close the windows</item>
+        <item>Open the windows</item>
+        <item>Wear lighter clothes</item>
+        <item>Layer Up</item>
+        <item>Open the blinds</item>
+        <item>Close the blinds</item>
+    </string-array>
+
+    <string-array name="settings_options">
+        <item>Units</item>
+        <item>Terms and Conditions </item>
+        <item>About</item>
+
+    </string-array>
+
+</resources>

@@ -1,119 +1,589 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    android:id="@+id/swipe_refresh_layout">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        >
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/indoor_card"
-            android:layout_width="@dimen/weather_card_width"
-            android:layout_height="@dimen/weather_card_height"
-            android:layout_gravity="center"
-            android:background="@android:color/white"
-            card_view:cardCornerRadius="4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/indoor_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:text="@string/indoor_conditions"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+            <!--Indoor Conditions Card-->
 
-        </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/indoor_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/outdoor_card"
-            android:layout_width="@dimen/weather_card_width"
-            android:layout_height="@dimen/weather_card_height"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/card_margin_top"
-            android:background="@android:color/white"
-            card_view:cardCornerRadius="4dp">
+                <TextView
+                    android:id="@+id/indoor_text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/indoor_conditions"
+                    android:textColor="@color/colorCards"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/outdoor_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:text="@string/outdoor_conditions"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/temperature_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32° C"
+                        android:textSize="24sp" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/suggestions_card_title"
-            android:layout_width="@dimen/weather_card_width"
-            android:layout_height="@dimen/suggestions_card_height"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/card_margin_top"
-            android:background="@color/colorPrimary"
-            card_view:cardCornerRadius="4dp">
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_black_24dp" />
 
-            <TextView
-                android:id="@+id/suggestions_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:text="@string/suggestions_title"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                />
+                    <!--This encompasses and changes the Humidity value-->
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/humidity_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/humidity_title" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/suggestion_one_card"
-            android:layout_width="@dimen/weather_card_width"
-            android:layout_height="@dimen/weather_card_height"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/card_margin_top"
-            android:background="@color/colorPrimary"
-            card_view:cardCornerRadius="4dp">
+                    <TextView
+                        android:id="@+id/humidity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_toEndOf="@+id/humidity_title"
+                        android:text="41%"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/suggestion_one"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:text="Suggestion One"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                    <!--This encompasses the changes to the wind speed value-->
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/wind_speed_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/humidity_title"
+                        android:text="@string/wind_speed_title" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/suggestion_two_card"
-            android:layout_width="@dimen/weather_card_width"
-            android:layout_height="@dimen/weather_card_height"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/card_margin_top"
-            android:background="@color/colorPrimary"
-            card_view:cardCornerRadius="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/humidity_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/wind_speed_title"
+                        android:text="0 kmh"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/suggestion_two"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp"
-                android:text="Suggestion Two"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                    <!--This encompasses changes to the CO2 value-->
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/co2_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/wind_speed_title"
+                        android:text="@string/co2_title" />
 
-    </LinearLayout>
-</ScrollView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/wind_speed_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/co2_title"
+                        android:text="1400"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses changes to the PMV value-->
+
+                    <TextView
+                        android:id="@+id/est_pmv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/co2_title"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/est_pmv_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/co2_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/est_pmv_title"
+                        android:text="+0.8"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses changes to the brightness value-->
+
+                    <TextView
+                        android:id="@+id/brightness_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/est_pmv_title"
+                        android:text="@string/brightness_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/est_pmv_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/brightness_title"
+                        android:text="400 LUX"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Outdoor Conditions Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/outdoor_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/outdoor_text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/outdoor_conditions"
+                    android:textColor="@color/colorCards"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <TextView
+                        android:id="@+id/temperature_value_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32° C"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/weather_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_black_24dp" />
+
+                    <!--This encompasses and changes the Humidity value-->
+
+                    <TextView
+                        android:id="@+id/humidity_title_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/humidity_title" />
+
+                    <TextView
+                        android:id="@+id/humidity_value_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_toEndOf="@+id/humidity_title_outdoors"
+                        android:text="41%"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses the changes to the wind speed value-->
+
+                    <TextView
+                        android:id="@+id/wind_speed_title_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/humidity_title_outdoors"
+                        android:text="@string/wind_speed_title" />
+
+                    <TextView
+                        android:id="@+id/wind_speed_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/humidity_title_outdoors"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/wind_speed_title_outdoors"
+                        android:text="0 kmh"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses changes to the CO2 value-->
+
+                    <TextView
+                        android:id="@+id/co2_title_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/wind_speed_title_outdoors"
+                        android:text="@string/co2_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/wind_speed_title_outdoors"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/co2_title_outdoors"
+                        android:text="400"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses changes to the PMV value-->
+
+                    <TextView
+                        android:id="@+id/precipitation_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/co2_title_outdoors"
+                        android:text="@string/precipitation_title" />
+
+                    <TextView
+                        android:id="@+id/precipitation_value_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/co2_title_outdoors"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@+id/precipitation_title"
+                        android:text="58%"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Suggestions Title Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestions_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/suggestions_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                card_view:cardBackgroundColor="@color/colorCards"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/suggestions_text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:text="@string/suggestions_title"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+            <!--Suggestion Ome Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestion__card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/suggestion_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Suggestion"
+                    android:textColor="@color/colorCards"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <ImageView
+                        android:id="@+id/suggestion_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_black_24dp" />
+
+                    <!--This encompasses and changes the Humidity value-->
+
+                    <TextView
+                        android:id="@+id/energy_impact_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_toEndOf="@+id/energy_impact_title"
+                        android:text="12 KWH"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses the changes to the wind speed value-->
+
+                    <TextView
+                        android:id="@+id/cost_impact_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/energy_impact_title"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/energy_impact"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title"
+                        android:text="$3.6 SAVINGS"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/ignore_suggestion_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/cost_impact_title"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/ignore_suggestion"
+                        android:textColor="@color/colorCards"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Suggestion Two Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestion_two_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/suggestion_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Suggestion"
+                    android:textColor="@color/colorCards"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <ImageView
+                        android:id="@+id/suggestion_icon_two"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_black_24dp" />
+
+                    <!--This encompasses and changes the Humidity value-->
+
+                    <TextView
+                        android:id="@+id/energy_impact_title_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_toEndOf="@+id/energy_impact_title_two"
+                        android:text="12 KWH"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses the changes to the wind speed value-->
+
+                    <TextView
+                        android:id="@+id/cost_impact_title_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/energy_impact_title_two"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/energy_impact_two"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title_two"
+                        android:text="$3.6 SAVINGS"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/ignore_suggestion_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/cost_impact_title_two"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/ignore_suggestion"
+                        android:textColor="@color/colorCards"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Suggestion Three Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestion_three_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/suggestion_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Suggestion"
+                    android:textColor="@color/colorCards"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <ImageView
+                        android:id="@+id/suggestion_three_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_black_24dp" />
+
+                    <!--This encompasses and changes the Humidity value-->
+
+                    <TextView
+                        android:id="@+id/energy_impact_title_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_toEndOf="@+id/energy_impact_title_three"
+                        android:text="12 KWH"
+                        android:textStyle="bold" />
+
+                    <!--This encompasses the changes to the wind speed value-->
+
+                    <TextView
+                        android:id="@+id/cost_impact_title_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/energy_impact_title_three"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/energy_impact_three"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title_three"
+                        android:text="$3.6 SAVINGS"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/ignore_suggestion_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/cost_impact_title_three"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/ignore_suggestion"
+                        android:textColor="@color/colorCards"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

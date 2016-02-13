@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:appcompat="http://schemas.android.com/apk/res-auto"
-    tools:context=".Activities.MainActivity">
+    tools:context=".activities.MainActivity">
 
     <item
         android:id="@+id/action_settings"
