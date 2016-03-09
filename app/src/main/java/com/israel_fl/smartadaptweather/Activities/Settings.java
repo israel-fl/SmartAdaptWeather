@@ -31,6 +31,9 @@ public class Settings extends AppCompatActivity {
         // Set UP affordance
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            // FIXME: 3/7/2016
+            // Known bug, crashes on MainActivity resume due to parse datastore
+            // Priority: LOW
         }
 
         listView = (ListView) findViewById(R.id.settings_list);

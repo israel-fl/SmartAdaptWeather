@@ -36,4 +36,7 @@ dependencies {
     compile 'com.survivingwithandroid:weatherlib_volleyclient:1.6.0'
     compile 'com.mcxiaoke.volley:library:1.0.6@aar'
     compile 'com.android.support:support-v4:23.1.1'
+
+    compile 'com.parse.bolts:bolts-tasks:1.+'
+    compile 'com.parse:parse-android:1.+'
 }

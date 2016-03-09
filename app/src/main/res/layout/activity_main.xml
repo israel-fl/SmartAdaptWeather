@@ -91,6 +91,7 @@
                         android:text="@string/wind_speed_title" />
 
                     <TextView
+                        android:id="@+id/inside_wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/humidity_title"
@@ -109,6 +110,7 @@
                         android:text="@string/co2_title" />
 
                     <TextView
+                        android:id="@+id/inside_co2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/wind_speed_title"
@@ -128,13 +130,13 @@
                         android:text="@string/est_pmv_title" />
 
                     <TextView
+                        android:id="@+id/inside_pmv_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/co2_title"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="16dp"
                         android:layout_toEndOf="@+id/est_pmv_title"
-                        android:text="+0.8"
                         android:textStyle="bold" />
 
                     <!--This encompasses changes to the brightness value-->
@@ -255,6 +257,7 @@
                         android:layout_below="@id/wind_speed_title_outdoors"
                         android:layout_marginStart="6dp"
                         android:layout_toEndOf="@+id/co2_title_outdoors"
+                        android:id="@+id/co2Inside"
                         android:text="400"
                         android:textStyle="bold" />
 
@@ -275,6 +278,24 @@
                         android:layout_marginStart="6dp"
                         android:layout_toEndOf="@+id/precipitation_title"
                         android:text="58%"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/est_pmv_title_inside"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/precipitation_title"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/est_pmv_title" />
+
+                    <TextView
+                        android:id="@+id/outside_pmv_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/precipitation_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/est_pmv_title_inside"
                         android:textStyle="bold" />
 
 
@@ -339,9 +360,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="16dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_home_black_24dp" />
-
-                    <!--This encompasses and changes the Humidity value-->
+                         />
 
                     <TextView
                         android:id="@+id/energy_impact_title"
@@ -360,8 +379,6 @@
                         android:text="12 KWH"
                         android:textStyle="bold" />
 
-                    <!--This encompasses the changes to the wind speed value-->
-
                     <TextView
                         android:id="@+id/cost_impact_title"
                         android:layout_width="wrap_content"
@@ -374,7 +391,7 @@
                         android:id="@+id/savings_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/energy_impact"
+                        android:layout_below="@id/energy_impact_title"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="12dp"
                         android:layout_toEndOf="@+id/cost_impact_title"
@@ -432,9 +449,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="16dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_home_black_24dp" />
-
-                    <!--This encompasses and changes the Humidity value-->
+                         />
 
                     <TextView
                         android:id="@+id/energy_impact_title_two"
@@ -452,8 +467,6 @@
                         android:layout_toEndOf="@+id/energy_impact_title_two"
                         android:text="12 KWH"
                         android:textStyle="bold" />
-
-                    <!--This encompasses the changes to the wind speed value-->
 
                     <TextView
                         android:id="@+id/cost_impact_title_two"
@@ -490,10 +503,33 @@
 
             </android.support.v7.widget.CardView>
 
-            <!--Suggestion Three Card-->
+            <!--Blinds Suggestions Title Card-->
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/suggestion_three_card"
+                android:id="@+id/blinds_suggestions_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/suggestions_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                card_view:cardBackgroundColor="@color/colorCards"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:id="@+id/blinds_suggestions_text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:text="@string/suggestions_blinds"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+            <!--Studying Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/blinds_suggestion_card"
                 android:layout_width="@dimen/weather_card_width"
                 android:layout_height="@dimen/weather_card_height"
                 android:layout_gravity="center"
@@ -501,15 +537,89 @@
                 android:background="@android:color/white"
                 card_view:cardCornerRadius="4dp">
 
-                <TextView
-                    android:id="@+id/suggestion_three"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:text="Suggestion"
-                    android:textColor="@color/colorCards"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <TextView
+                        android:id="@+id/study"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/study"
+                        android:textColor="@color/colorCards"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/study_suggestion"
+                        android:layout_below="@id/study"
+                        android:layout_marginTop="4dp"
+                        android:text="Open the Blinds"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/suggestion_icon_study"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        />
+
+                    <TextView
+                        android:id="@+id/study_impact_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_study"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_toEndOf="@+id/study_impact_title"
+                        android:text="@string/no_energy"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cost_impact_title_blinds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/study_impact_title"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_study"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/study_impact_title"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title_blinds"
+                        android:text="@string/no_savings"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Dining Card-->
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/dining_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -517,72 +627,244 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="36dp">
 
+                    <TextView
+                        android:id="@+id/dining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dining"
+                        android:textColor="@color/colorCards"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dining_suggestion"
+                        android:layout_below="@id/dining"
+                        android:layout_marginTop="4dp"
+                        android:text="Open the Blinds"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
                     <ImageView
-                        android:id="@+id/suggestion_three_icon"
+                        android:id="@+id/suggestion_icon_dining"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="16dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_home_black_24dp" />
-
-                    <!--This encompasses and changes the Humidity value-->
+                        />
 
                     <TextView
-                        android:id="@+id/energy_impact_title_three"
+                        android:id="@+id/energy_impact_dining_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="60dp"
                         android:text="@string/energy_impact_title" />
 
                     <TextView
-                        android:id="@+id/energy_impact_three"
+                        android:id="@+id/energy_impact_dining"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_toEndOf="@+id/energy_impact_title_three"
-                        android:text="12 KWH"
+                        android:layout_marginTop="60dp"
+                        android:layout_toEndOf="@+id/energy_impact_dining_title"
+                        android:text="@string/no_energy"
                         android:textStyle="bold" />
 
-                    <!--This encompasses the changes to the wind speed value-->
-
                     <TextView
-                        android:id="@+id/cost_impact_title_three"
+                        android:id="@+id/cost_impact_title_dining"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/energy_impact_title_three"
+                        android:layout_below="@+id/energy_impact_dining_title"
                         android:layout_marginTop="12dp"
                         android:text="@string/cost_impact_title" />
 
                     <TextView
-                        android:id="@+id/savings_three"
+                        android:id="@+id/savings_dining"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/energy_impact_three"
+                        android:layout_below="@id/energy_impact_dining_title"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="12dp"
-                        android:layout_toEndOf="@+id/cost_impact_title_three"
-                        android:text="$3.6 SAVINGS"
+                        android:layout_toEndOf="@+id/cost_impact_title_dining"
+                        android:text="@string/no_savings"
                         android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/ignore_suggestion_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/cost_impact_title_three"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/ignore_suggestion"
-                        android:textColor="@color/colorCards"
-                        android:background="?android:attr/selectableItemBackground"/>
 
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
+            <!--Sleeping Card-->
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestion_sleeping_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <TextView
+                        android:id="@+id/sleeping"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sleeping"
+                        android:textColor="@color/colorCards"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sleeping_suggestion"
+                        android:layout_below="@id/sleeping"
+                        android:layout_marginTop="4dp"
+                        android:text="Open the Blinds"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/suggestion_icon_sleeping"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        />
+
+                    <TextView
+                        android:id="@+id/energy_impact_title_sleeping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_sleeping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_toEndOf="@+id/energy_impact_title_sleeping"
+                        android:text="@string/no_energy"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cost_impact_title_sleeping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/energy_impact_title_sleeping"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_sleeping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/energy_impact_sleeping"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title_sleeping"
+                        android:text="@string/no_savings"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Relaxing Card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/suggestion_relaxing_card"
+                android:layout_width="@dimen/weather_card_width"
+                android:layout_height="@dimen/weather_card_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/card_margin_top"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="36dp">
+
+                    <TextView
+                        android:id="@+id/relaxing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/relaxing"
+                        android:textColor="@color/colorCards"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relaxing_suggestion"
+                        android:layout_below="@id/relaxing"
+                        android:layout_marginTop="4dp"
+                        android:text="Open the Blinds"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/suggestion_icon_relaxing"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:scaleType="fitXY"
+                        />
+
+                    <TextView
+                        android:id="@+id/energy_impact_title_relaxing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:text="@string/energy_impact_title" />
+
+                    <TextView
+                        android:id="@+id/energy_impact_relaxing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_toEndOf="@+id/energy_impact_title_relaxing"
+                        android:text="@string/no_energy"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cost_impact_title_relaxing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/energy_impact_title_relaxing"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/cost_impact_title" />
+
+                    <TextView
+                        android:id="@+id/savings_relaxing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/energy_impact_relaxing"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_toEndOf="@+id/cost_impact_title_relaxing"
+                        android:text="@string/no_savings"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

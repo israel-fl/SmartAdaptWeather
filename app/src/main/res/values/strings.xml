@@ -6,21 +6,37 @@
     <string name="indoor_conditions">INDOOR CONDITIONS</string>
     <string name="outdoor_conditions">OUTDOOR CONDITIONS</string>
     <string name="suggestions_title">SUGGESTIONS</string>
+    <string name="suggestions_blinds">LIGHTING</string>
     <string name="humidity_title">HUMIDITY</string>
     <string name="wind_speed_title">WIND SPEED</string>
     <string name="co2_title">CO2</string>
     <string name="est_pmv_title">EST. PMV</string>
     <string name="brightness_title">BRIGHTNESS</string>
     <string name="precipitation_title">PRECIPITATION</string>
-    <string name="energy_impact_title">ENERGY IMPACT</string>
-    <string name="cost_impact_title">COST IMPACT</string>
+    <string name="energy_impact_title">MONTHLY ENERGY IMPACT</string>
+    <string name="cost_impact_title">MONTHLY COST IMPACT</string>
     <string name="metric">Metric (°C, km/h. mm)</string>
     <string name="imperial">Imperial (°F, mph, in)</string>
     <string name="units_title">Units</string>
     <string name="about_title">About</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_suggestion">No Suggestion</string>
+    <string name="no_energy">0.0</string>
+    <string name="no_savings">$0.0</string>
     <string name="ignore_suggestion">Ignore</string>
+    <string name="ignored">Ignored √</string>
+
+    <string name="study">Studying</string>
+    <string name="dining">Dining</string>
+    <string name="sleeping">Sleeping</string>
+    <string name="relaxing">Relaxing</string>
+
+    <string name="blinds_savings">$5</string>
+    <string name="blinds_energy">24 kwh</string>
+
+    <!--API keys-->
+    <string name="parse_app_id">pqhwPWGxlvDBvWKVGSoyr8KSrNi2bUBJu0OwRh3L</string>
+    <string name="parse_client_key">NzjeHljzEZKGiILyB1cun8G021hKxbea3ltU35Up</string>
+
 </resources>

@@ -7,7 +7,8 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/storm"/>
+            android:src="@drawable/clouds"
+            />
     </item>
 
 </layer-list>
